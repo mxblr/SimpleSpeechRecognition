@@ -31,6 +31,7 @@ def my_model():
 	model.add(Dense(18 ,activation='relu'))
 	model.add(Dense(12, activation="softmax"))
 	
+	
 	return model
 
 
