@@ -52,6 +52,22 @@ def label_from_oh(one_hot_encoding):
 	label_list = ["yes", "no","up", "down", "left","right","on", "off","stop", "go","silence", "unknown"]
 	return(label_list[np.argmax(one_hot_encoding)])		
 
+def label_from_oh_threshold(one_hot_encoding, threshold = 0.4):
+	"""
+	Get the label from the one-hot-encoding
+
+	Args:
+	one_hot_encoding: 		one hot encoding of label
+
+	Returns:
+	label: 		the label of the current data file
+	"""
+	label_list = ["yes", "no","up", "down", "left","right","on", "off","stop", "go","silence", "unknown"]
+	if np.max(one_hot_encoding) >= threshold:
+		return(label_list[np.argmax(one_hot_encoding)])		
+	else:
+		return label_list[10+np.argmax(one_hot_encoding[0][-2:])]
+
 def splitDataset(paths, validation_set_size=0.1, filename_validation="validation_set.txt", filename_training="training_set.txt"):
 	"""
 	Split the dataset into training and validation set.

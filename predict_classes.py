@@ -94,7 +94,8 @@ def predict_single_unpreprocessed(weights_path, file, model):
 
 
 	pred = model.predict(batch, batch_size=256)
-	print(data_read.label_from_oh(pred))
+	#print(data_read.label_from_oh(pred))
+	print(data_read.label_from_oh_threshold(pred))
 
 def predict_preprocessed(weights_path, file_paths, output_filename):
 	"""
